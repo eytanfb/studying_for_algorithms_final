@@ -1,3 +1,5 @@
+require 'benchmark'
+
 MAXN = 45
 F = []
 
@@ -18,8 +20,8 @@ puts fib_dprog 0
 puts fib_dprog 1
 puts fib_dprog 5
 
-beginning = Time.now
-puts fib_dprog 35
-ending = Time.now
+time = Benchmark.realtime {
+    puts fib_dprog 35
+}
 
-puts "It took #{(ending - beginning).to_f} seconds to complete with n = 35"
+puts "It took #{time*1000} milliseconds to complete with n = 35"
